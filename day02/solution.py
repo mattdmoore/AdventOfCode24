@@ -1,14 +1,24 @@
+from typing import Sequence
+
 result = 0
+
+
+def is_safe(level: Sequence[int]) -> bool:
+    increasing = all(1 <= a - b <= 3 for a, b in zip(level[1:], level[:-1]))
+    decreasing = all(1 <= a - b <= 3 for a, b in zip(level[:-1], level[1:]))
+    return increasing or decreasing
+
+
 with open("input.txt") as text:
     for line in text:
-        parsed = [int(x) for x in line.strip().split(" ")]
-        diffs = [a - b for a, b in zip(parsed[1:], parsed[:-1])]
+        report = [int(x) for x in line.strip().split(" ")]
 
-        if (
-            all(diffs)
-            and max(abs(d) for d in diffs) < 4
-            and (all(d < 0 for d in diffs) or all(d > 0 for d in diffs))
-        ):
-            print(diffs, parsed)
+        if is_safe(report):
             result += 1
+        else:
+            for i, _ in enumerate(report):
+                if is_safe(report[:i] + report[i+1:]):
+                    result += 1
+                    break
+
 print(result)
