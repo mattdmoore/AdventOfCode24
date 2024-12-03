@@ -11,6 +11,6 @@ with open("input.txt") as text:
                     do = True
                 case "don't()":
                     do = False
-            if do and a:
+            if do and not flag:
                 result += int(a) * int(b)
 print(result)
