@@ -22,9 +22,8 @@ for line in [*rows, *columns, *diagonal_a, *diagonal_b]:
     samx = re.findall("SAMX", line)
     result += len(xmas) + len(samx)
 
+
 # Part 2
-
-
 def x_mas(i, j, w):
     """
     corners [0 - 1]
