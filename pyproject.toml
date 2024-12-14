@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "adventofcode24"
+version = "0.1.0"
+description = ""
+authors = ["matt <matt.d.moore@outlook.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.dev-dependencies]
+
+[tool.basedpyright]
+pythonVersion = "^3.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -5,6 +5,7 @@ do = True
 with open("input.txt") as text:
     for line in text:
         pairs = re.findall("mul\((\d+),(\d+)\)|(do(n't)?\(\))", line)
+        print(pairs)
         for a, b, flag, _ in pairs:
             match flag:
                 case "do()":
